@@ -67,7 +67,7 @@ Categorical Columns were filled using the mode and A Placeholder
 - Ensured that formatting was consistent (for example, Male and Male were unified).
 
 ### Detecting and Handling Outliers
-- Used the box plot method to identify outliers in the Age Column
+- Used the box plot method to identify outliers in the Age and Satisfaction Column
 
 ### Version Control.
 
