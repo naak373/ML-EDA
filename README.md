@@ -55,22 +55,61 @@ DATA DICTIONARY
 |Preferred_Communication | object | Preferred communication method for online dating (e.g., Text, Video Calls, Voice Notes). |
 |Partner_Priorities    | object   | Factors prioritized in selecting a partner (e.g., Personality > Interests > Values). |
 
-# Below Are the Data Cleaning Steps That The Data Went Through
+### Below Are the Data Cleaning Steps That The Data Went Through
 
 # Identifying and Handling Missing Values
 Retrieved missing values with print(df.isnull().sum())
 Identified the Percentage of Missing Values using ((data.isnull().sum())/data.shape[0] ) * 100
 Categorical Columns were filled using the mode and A Placeholder
 
-### The standardization of Categorical Data.
+# The standardization of Categorical Data.
 - Made all text fields lowercase. 
 - Ensured that formatting was consistent (for example, Male and Male were unified).
 
-### Detecting and Handling Outliers
-- Used the box plot method to identify outliers in the Age and Satisfaction Column
+# Detecting and Handling Outliers
+- Used the box plot method to identify outliers in the Age ,Satisfaction and Daily_Usage_Time Columns
 
-### Version Control.
+# Version Control.
 
 - Version 1 of the cleaned dataset was committed to GitHub, with the message: "Cleaned dataset: removed duplicates, handled missing values, and standardized categories."
 
 
+#### Deep Exploratory Data Analysis (EDA)
+
+#### Below Are the EDA Steps That Were Performed on The Dataset
+# Relationship Ananlysis
+1. A Correlation Heat Map was plotted to identify the relationships between the numerical variables (User_ID,Age, Daily_Usage_Time,Satisfaction)
+
+2. Performed Groupby Aggregations(listed below) and Pivot Table
+- Grouping by gender and calculating average satisfaction level
+- Grouping by location and getting counts of Primary Apps used
+- Plotted a pivot table to analyze app usage by gender
+
+3. Plotted a Stacked Bar Chart to visualize categorical comparison between Dating App Usage and Gender
+
+# Github Branch
+A dedicated GitHub branch (feature-EDA ) was created to ensured safe experimentation
+
+## Detecting Patterns and Bias in Data
+- Density Plots and Histograms were utilized to compare distributions across various demographic groups
+- Identify overrepresented and underrepresented groups using demo_counts = df[demographic_cols].value_counts(normalize=True) * 100
+print("Demographic Group Representation (%):\n", demo_counts.sort_values(ascending=False))
+
+# GitHub Repository Updated With Commit Message
+"Added bias detection analysis and demographic trends" ##
+
+## Temporal & Regional Trends
+- Plotted a Line Chart to show trends in the time Daily Usage Time Trends by Usage Frequency and Gender
+- A Geospatial Visualization was created to visualize the App Usage Differences Across different Locations ( Cities)
+- A  Bubble Chart was plotted to represent app popularity across age groups
+
+## Feature Engineering for Future Modeling 
+- Encoded categorical variables using One-Hot Encoding or Label Encoding.
+- Normalized numerical variables using MinMaxScaler or StandardScaler.
+- Created a new feature, "active app count," by summing the number of apps used per user.
+
+# The engineered dataset with a message:  
+“Feature engineering: Encoded categorical variables & added new features."
+
+### FINAL SUMMARY
+- The dataset was cleaned, standardized, and analyzed through EDA, revealing trends in demographics, app usage, and preferences, followed by bias detection, geospatial analysis, and feature engineering for future modeling. All changes were version-controlled on GitHub, ensuring a structured and collaborative workflow
